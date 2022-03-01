@@ -20,7 +20,20 @@ return inquirer.prompt([
         message:"What is your name?"
     },
     {
-
+        type:"input",
+        name:"id",
+        message:"What is your employee ID?",
+    },
+    {
+        type:"input",
+        name:"email",
+        message:"What is your email?"
+    },
+    {
+        type:"list",
+        name:"role",
+        choices:["Manager", "Employee", "Engineer", "Intern"],
+        message:"What is your role?"
     }
 ])
 };
@@ -41,7 +54,8 @@ function init() {
 
         fs.writeFile(path.join(__dirname, '/result', 'thismyteam.html'), managerHTML, engineerHTML, internHTML,
         err => {
-            err ? console.log(err) : console.log("Your Team Profile has been successfully generated!");
+            if (err) throw err;
+            console.log("Your Team Profile has been successfully generated in the result folder!");
         });
     });
 }
