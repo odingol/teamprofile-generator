@@ -9,11 +9,21 @@ const Intern = require('./lib/Intern')
 // File system 
 const fs = require('fs');
 
+// Simplified Path Variables
+const resultDirectory = path.resolve(__dirname, "result");
+const resultHTML = path.join(resultDirectory, "myteam.html");
+
+// Manager, Engineer, and Intern objects
+const staff = [];
 
 // Terminal Prompt Questions
 
 const promptQuestions = () => {
-return inquirer.prompt([
+    managerQuestionaire();
+}
+
+const managerQuestionaire = () => {
+    inquirer.prompt([
     {
         type:"input",
         name:"name",
@@ -30,24 +40,41 @@ return inquirer.prompt([
         message:"What is your email?"
     },
     {
-        type:"list",
-        name:"role",
-        choices:["Manager", "Employee", "Engineer", "Intern"],
-        message:"What is your role?"
+        type:"input",
+        name:"officeNumber",
+        message:"What is your office number?"
     }
-])
+    ]).then((response) => {
+        const managerInfo = new Manager(response.name, response.id, response.email, response.officeNumber);
+        staff.push(managerInfo);
+        err ? console.log(err) : console.log('Manager info saved!')
+    })
 };
+
+const additionalMembers = () => {
+    inquirer.prompt([
+        {
+            type:"list",
+            name:"addEmployee",
+            choices:["Engineer","Intern","None"],
+            message:"Who would you like to add to your team?"
+        }
+    ]).then((response) => {
+        if(response.addEmployee === "Engineer") {
+            // why is it addEmployee also this is where you will put the function for engineer
+        } else if(response.addEmployee === "Intern") {
+
+        }
+        init();
+    })
+};
+
 
 
 
 
 function init() {
     promptQuestions()
-    .then((response) => {
-        const managerResponse = new Manager(response);
-        const engineerResponse = new Engineer(response);
-        const internResponse = new Intern(response);
-
         // const managerHTML = managerResponse.method();
         // const engineerHTML = engineerResponse.method();
         // const internHTML = internResponse.method();
@@ -57,8 +84,8 @@ function init() {
             if (err) throw err;
             console.log("Your Team Profile has been successfully generated in the result folder!");
         });
-    });
-}
+   
+};
 
 
 // Initialize App
