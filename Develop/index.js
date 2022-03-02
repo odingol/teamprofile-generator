@@ -32,12 +32,12 @@ const managerQuestionaire = () => {
     {
         type:"input",
         name:"id",
-        message:"What is your employee ID?",
+        message:"What is your manager ID?",
     },
     {
         type:"input",
         name:"email",
-        message:"What is your email?"
+        message:"What is your E-mail address?"
     },
     {
         type:"input",
@@ -45,9 +45,10 @@ const managerQuestionaire = () => {
         message:"What is your office number?"
     }
     ]).then((response) => {
-        const managerInfo = new Manager(response.name, response.id, response.email, response.officeNumber);
-        staff.push(managerInfo);
-        err ? console.log(err) : console.log('Manager info saved!')
+        const managerInput = new Manager(response.name, response.id, response.email, response.officeNumber);
+        staff.push(managerInput);
+        err ? console.log(err) : console.log(`Welcome ${response.name} let's start building your team!`)
+        additionalMembers();
     })
 };
 
@@ -56,35 +57,87 @@ const additionalMembers = () => {
         {
             type:"list",
             name:"addEmployee",
-            choices:["Engineer","Intern","None"],
+            choices:["Engineer","Intern","Done, let's see my Team!"],
             message:"Who would you like to add to your team?"
         }
     ]).then((response) => {
         if(response.addEmployee === "Engineer") {
             // why is it addEmployee also this is where you will put the function for engineer
+            engineerPrompt();
         } else if(response.addEmployee === "Intern") {
-
+            internPrompt();
         }
         init();
     })
 };
 
+const engineerPrompt = () => {
+    inquirer.prompt([
+        {
+            type:"input",
+            name:"name",
+            message:"What is the Engineer's name?"
+        },
+        {
+            type:"input",
+            name:"id",
+            message:"What is the Engineer's ID?"
+        },
+        {
+            type:"input",
+            name:"email",
+            message:"What is the Engineer's E-mail address?"
+        },
+        {
+            type:"input",
+            name:"github",
+            message:"What is the Engineer's Github username?"
+        }
+    ]).then((response) => {
+        const engineerInput = new Engineer(response.name, response.id, response.email, response.github);
+        staff.push(engineerInput);
+        err ? console.log(err) : console.log(`${response.name} has been added as an Engineer to your team!`)
+    });
+};
 
-
+const internPrompt = () => {
+    inquirer.prompt([
+        {
+            type:"input",
+            name:"name",
+            message:"What is the Intern's name?"
+        },
+        {
+            type:"input",
+            name:"id",
+            message:"What is the Intern's ID?",
+        },
+        {
+            type:"input",
+            name:"email",
+            messsage:"What is the Intern's E-mail address?"
+        },
+        {
+            type:"input",
+            name:"school",
+            message:"Where does the Intern go to school?"
+        }
+    ]).then((response) => {
+        const internInput = new Intern(response.name, response.id, response.email, response.school) 
+        staff.push(internInput);
+        err ? console.log(err) : console.log(`${response.name} has been added as an Intern to your team!`)
+    })
+}
 
 
 function init() {
     promptQuestions()
-        // const managerHTML = managerResponse.method();
-        // const engineerHTML = engineerResponse.method();
-        // const internHTML = internResponse.method();
 
-        fs.writeFile(path.join(__dirname, '/result', 'thismyteam.html'), managerHTML, engineerHTML, internHTML,
-        err => {
-            if (err) throw err;
-            console.log("Your Team Profile has been successfully generated in the result folder!");
-        });
-   
+    fs.writeFile(staff, resultHTML,
+    err => {
+        if (err) throw err;
+        console.log("Your Team Profile has been successfully generated in the result folder!");
+    });
 };
 
 
