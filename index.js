@@ -2,9 +2,9 @@ const inquirer = require('inquirer');
 const path = require('path');
 
 // Classes
-const Manager = require('./lib/Manager')
-const Engineer = require('./lib/Engineer')
-const Intern = require('./lib/Intern') 
+const Manager = require('./Develop/lib/Manager')
+const Engineer = require('./Develop/lib/Engineer')
+const Intern = require('./Develop/lib/Intern') 
 
 // File system 
 const fs = require('fs');
@@ -46,8 +46,8 @@ const managerQuestionaire = () => {
     }
     ]).then((response) => {
         const managerInput = new Manager(response.name, response.id, response.email, response.officeNumber);
+        console.log(`Welcome ${response.name}, let's start building your team!`);
         staff.push(managerInput);
-        err ? console.log(err) : console.log(`Welcome ${response.name} let's start building your team!`)
         additionalMembers();
     })
 };
@@ -95,8 +95,8 @@ const engineerPrompt = () => {
         }
     ]).then((response) => {
         const engineerInput = new Engineer(response.name, response.id, response.email, response.github);
+        console.log(`${response.name} has been added as an Engineer to your team!`)
         staff.push(engineerInput);
-        err ? console.log(err) : console.log(`${response.name} has been added as an Engineer to your team!`)
     });
 };
 
@@ -124,17 +124,15 @@ const internPrompt = () => {
         }
     ]).then((response) => {
         const internInput = new Intern(response.name, response.id, response.email, response.school) 
+        console.log(`${response.name} has been added as an Intern to your team!`)
         staff.push(internInput);
-        err ? console.log(err) : console.log(`${response.name} has been added as an Intern to your team!`)
     })
 }
 
 
 function init() {
-    promptQuestions()
 
-    fs.writeFile(staff, resultHTML,
-    err => {
+    fs.writeFile(staff, resultHTML, err => {
         if (err) throw err;
         console.log("Your Team Profile has been successfully generated in the result folder!");
     });
@@ -142,4 +140,4 @@ function init() {
 
 
 // Initialize App
-init();
+promptQuestions();
