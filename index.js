@@ -67,9 +67,31 @@ const additionalMembers = () => {
         } else if(response.addEmployee === "Intern") {
             internPrompt();
         }
-        init();
+        else {
+            init();
+        }
     })
 };
+
+const moreMember = () => {
+    inquirer.prompt([
+        {
+            type:"list",
+            name:"more",
+            choices:["Engineer", "Intern","Done, let's see my Team!"],
+            message:"Would like to add an additional member?"
+        }
+        ]).then((response) => {
+            if(response.more === "Engineer") {
+                engineerPrompt();
+
+            } else if(response.more === "Intern") {
+                internPrompt();
+            } else {
+                init();
+            };
+        });
+    }  
 
 const engineerPrompt = () => {
     inquirer.prompt([
@@ -92,13 +114,15 @@ const engineerPrompt = () => {
             type:"input",
             name:"github",
             message:"What is the Engineer's Github username?"
-        }
+        },
     ]).then((response) => {
         const engineerInput = new Engineer(response.name, response.id, response.email, response.github);
         console.log(`${response.name} has been added as an Engineer to your team!`)
         staff.push(engineerInput);
+        moreMember();
     });
 };
+
 
 const internPrompt = () => {
     inquirer.prompt([
@@ -110,7 +134,7 @@ const internPrompt = () => {
         {
             type:"input",
             name:"id",
-            message:"What is the Intern's ID?",
+            message:"What is the Intern's ID?"
         },
         {
             type:"input",
@@ -126,8 +150,10 @@ const internPrompt = () => {
         const internInput = new Intern(response.name, response.id, response.email, response.school) 
         console.log(`${response.name} has been added as an Intern to your team!`)
         staff.push(internInput);
+        moreMember();
     })
-}
+};
+
 
 
 function init() {
@@ -139,5 +165,5 @@ function init() {
 };
 
 
-// Initialize App
+// Initialize Start of the App
 promptQuestions();
