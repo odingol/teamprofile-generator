@@ -24,19 +24,18 @@ SO THAT managers can have quick access to their emails and GitHub profiles
 ![Git Clone Navigation](./Develop/img/git_guide_img.jpg)
 
 <br>
-
 2) Once downloaded, copy the code "npm install" and paste inside the terminal of your code editor
 
 ```bash
 npm install
 ```
-
+<br>
 3) Once step 2 is completed, copy the code "node index.js" and paste inside the terminal to begin answering the prompt questions for the HTML page.
 
 ```bash
 node index.js
 ```
-
+<br>
 4) After all questions are completed, the myteam.html file is instantly created inside the result folder.
 <br>
 <br>
@@ -72,7 +71,7 @@ Please click on the badge to report any issues if they exist
 Run any tests inside the command line using this code:
 <br>
 ```bash
-npm run test
+npm test
 ```
     
 

@@ -218,7 +218,7 @@ function newRole(candidate) {
     let card = "";
 
     if (role === "Engineer") {
-      const gitHub = candidate.getGithub();
+      const gitHub = candidate.getGitHub();
       card = 
     `<div class="col-md-3 card m-5">
         <div class="row card-header d-flex justify-content-center">
