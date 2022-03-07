@@ -21,7 +21,7 @@ SO THAT managers can have quick access to their emails and GitHub profiles
     
 1) Go to my Github and clone this repo
 
-![Git Clone Navigation](./Develop/img/)
+![Git Clone Navigation](./Develop/img/git_guide_img.jpg)
 
 <br>
 
