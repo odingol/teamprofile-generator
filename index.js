@@ -195,14 +195,15 @@ function htmlMain() {
 
 <body>
     <header>
-        <div class="shadow-lg jumbotron jumbotron-fluid w-100 p-5" style="background-color:rgb(156, 216, 190)>
+        <div class="shadow-lg jumbotron jumbotron-fluid w-100 p-5" style="background-color:rgb(156, 216, 190)">
             <div class="d-flex justify-content-center container">
             <h1 class="display-4">My Team</h1>
             </div>
             </div>
     </header>
+
     <main>
-        <section class="row d-flex justify-content-center w-100">`;
+        <section class="row d-flex justify-content-center w-100 p-5">`;
   fs.writeFile(resultHTML, htmlStart, (err) => {
     if (err) throw err;
   });
@@ -219,7 +220,7 @@ function newRole(candidate) {
     if (role === "Engineer") {
       const gitHub = candidate.getGithub();
       card = 
-    `<div class="col-md-2 card m-5">
+    `<div class="col-md-3 card m-5">
         <div class="row card-header d-flex justify-content-center">
             <h2 class="card-title d-flex justify-content-center w-100">${name}</h2>
             <h3 class="card-title"><i class="fas fa-glasses mr-2"></i>${role}</h3>
@@ -236,7 +237,7 @@ function newRole(candidate) {
     } else if (role === "Intern") {
       const school = candidate.getSchool();
       card = 
-    `<div class="col-md-2 card m-5">
+    `<div class="col-md-3 card m-5">
         <div class="row card-header d-flex justify-content-center">
             <h2 class="card-title d-flex justify-content-center w-100">${name}</h2>
             <h3 class="card-title"><i class="fa-solid fa-user-graduate mr-1"></i>${role}</h3>
@@ -253,19 +254,19 @@ function newRole(candidate) {
     } else {
       const officeNumber = candidate.getOfficeNumber();
       card = 
-    `<div class="col-lg-3 m-3 card">
-        <div class="row card-header d-flex justify-content-center bg-primary">
-            <h2 class="card-title d-flex justify-content-center w-100 text-white">${name}</h2>
-            <h3 class="card-title text-white"><i class="fa-solid fa-mug-hot p-1 text-warning"></i>${role}</h3>
-        </div>
-        <div class="card-body">
-            <ul class="list-group">
-                <li class="list-group-item">ID: ${id}</li>
-                <li class="list-group-item">Email: <a href="mailto:${email}">${email}</a></li>
-                <li class="list-group-item">Office number: ${officeNumber}</li>
-            </ul>
-        </div>
-    </div>
+    `<div class="col-lg-4 card">
+          <div class="row card-header d-flex justify-content-center bg-primary">
+              <h2 class="card-title d-flex justify-content-center w-100 text-white">${name}</h2>
+              <h3 class="card-title text-white"><i class="fa-solid fa-mug-hot p-1 text-warning"></i>${role}</h3>
+          </div>
+          <div class="card-body">
+              <ul class="list-group">
+                  <li class="list-group-item">ID: ${id}</li>
+                  <li class="list-group-item">Email: <a href="mailto:${email}">${email}</a></li>
+                  <li class="list-group-item">Office number: ${officeNumber}</li>
+              </ul>
+          </div>
+      </div>
     `;
     }
 

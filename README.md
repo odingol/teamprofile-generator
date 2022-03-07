@@ -41,7 +41,7 @@ node index.js
     
  ## Usage
     
-This makeREADME app is designed to create a professional README file from the user's input. A README file is created only when the user finishes answering all of the prompt questions. The user is also given the freedom to style their README in whatever format they wish.
+This CLI app is designed to create a professional html file from the user's input using Object-Oriented-Programming. The myteam.html file is created only when the user finishes answering all of the prompt questions. 
 
 [CLICK HERE]() if you would like to follow along on YouTube.
 
@@ -49,14 +49,14 @@ This makeREADME app is designed to create a professional README file from the us
 
 <br>
 
-![README functionality](./images/makeREADME-tutorial.gif)
+![README Screenshot](./Develop/img/team_profile_img.jpeg)
 <br><br>
     
 ## License 
-[![License: ISC](https://img.shields.io/badge/License-ISC-blue.svg)](https://opensource.org/licenses/ISC)
+[![License: ISC](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
     
     
-The license included for this project is under ISC
+The license included for this project is under MIT
     
     
 ## Contribute 
@@ -67,10 +67,9 @@ Please click on the badge to report any issues if they exist
     
 ## Tests
 
-* Manager.test.js
-* Employee.test.js 
-* Engineer.test.js 
-* Intern.test.js 
+```bash
+npm run test
+```
     
 
 ## Questions
