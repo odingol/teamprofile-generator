@@ -44,7 +44,7 @@ node index.js
     
 This CLI app is designed to create a professional html file from the user's input using Object-Oriented-Programming. The myteam.html file is created only when the user finishes answering all of the prompt questions. 
 
-[CLICK HERE]() if you would like to follow along on YouTube.
+[CLICK HERE](https://youtu.be/Rss2NWSsV3c) if you would like to follow along on YouTube.
 
 <br>Here is an image of the application:
 
