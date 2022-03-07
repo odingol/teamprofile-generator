@@ -38,6 +38,8 @@ node index.js
 ```
 
 4) After all questions are completed, the myteam.html file is instantly created inside the result folder.
+<br>
+<br>
     
  ## Usage
     
@@ -67,6 +69,8 @@ Please click on the badge to report any issues if they exist
     
 ## Tests
 
+Run any tests inside the command line using this code:
+<br>
 ```bash
 npm run test
 ```
