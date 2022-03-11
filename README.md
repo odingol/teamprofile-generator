@@ -21,7 +21,7 @@ SO THAT managers can have quick access to their emails and GitHub profiles
     
 1) Go to my Github and clone this repo
 
-![Git Clone Navigation](./Develop/img/git_guide_img.jpg)
+![Git Clone Navigation](./img/git_guide_img.jpg)
 
 <br>
 2) Once downloaded, copy the code "npm install" and paste inside the terminal of your code editor
@@ -50,7 +50,7 @@ This CLI app is designed to create a professional html file from the user's inpu
 
 <br>
 
-![README Screenshot](./Develop/img/team_profile_img.jpeg)
+![README Screenshot](./img/team_profile_img.jpeg)
 <br><br>
     
 ## License 
