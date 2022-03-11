@@ -3,12 +3,12 @@ const fs = require("fs");
 const path = require("path");
 
 // Classes
-const Manager = require("./Develop/lib/Manager");
-const Engineer = require("./Develop/lib/Engineer");
-const Intern = require("./Develop/lib/Intern");
+const Manager = require("./lib/Manager");
+const Engineer = require("./lib/Engineer");
+const Intern = require("./lib/Intern");
 
 // Simplified Path Variables
-const resultDirectory = path.resolve(__dirname, "Develop/result");
+const resultDirectory = path.resolve(__dirname, "result");
 const resultHTML = path.join(resultDirectory, "myteam.html");
 
 // Manager, Engineer, and Intern objects
